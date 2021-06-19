@@ -55,3 +55,33 @@ rW = IMG_W / int(newW)
 rH = IMG_H / int(newH)
 work_image = cv2.resize(work_image, (newW, newH))
 (H, W) = work_image.shape[:2]
+
+# define the two output layer names for the EAST detector model that
+# we are interested -- the first is the output probabilities and the
+# second can be used to derive the bounding box coordinates of text
+
+layer_names = [
+	"feature_fusion/Conv_7/Sigmoid",
+	"feature_fusion/concat_3"
+    ]
+# load the pre-trained EAST text detector
+print("[INFO] loading EAST text detector...")
+net = cv2.dnn.readNet(args["EAST"])
+
+# construct a blob from the image and then perform a forward pass of
+# the model to obtain the two output layer sets
+
+blob = cv2.dnn.blobFromImage(
+        work_image,
+        1.0, 
+        (W, H),
+        (123.68, 116.78, 103.94), 
+        swapRB=True, crop=False
+    )
+
+start = time.time()
+net.setInput(blob)
+(scores, geometry) = net.forward(layerNames)
+end = time.time()
+# show timing information on text prediction
+print("[INFO] text detection took {:.6f} seconds".format(end - start))
