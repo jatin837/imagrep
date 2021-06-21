@@ -3,3 +3,5 @@ env
 **/*swp*
 **/*png
 **/*jpg
+**/*.json
+**/*.log
