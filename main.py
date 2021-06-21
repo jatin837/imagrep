@@ -25,7 +25,7 @@ if __name__ == "__main__":
     print("*"*10)
 
     text = Text()
-    for i in len(result['text']):
+    for i in range(len(result['text'])):
         text.words.append(Word(
             result['left'][i],
             result['top'][i],
