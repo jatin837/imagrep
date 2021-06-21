@@ -16,7 +16,7 @@ class Text(object):
     def __init__(self, words:list = []):
         self.words = words
     def __repr__(self):
-        return [f"{word.content}" for word in self.words].join(" ")
+        return ' '.join([f"{word.content}" for word in self.words])
 
 if __name__ == "__main__":
     img = cv2.imread('test.png')
