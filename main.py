@@ -17,6 +17,8 @@ class Text(object):
         self.words = words
     def __repr__(self):
         return ' '.join([f"{word.content}" for word in self.words])
+    def __len__(self):
+        return len(self.words)
 
 if __name__ == "__main__":
     img = cv2.imread('test.png')
@@ -33,7 +35,7 @@ if __name__ == "__main__":
             result['height'][i],
             result['text'][i]
 
-        ))
+            ))
 
    # for key in result.keys():
    #     print(f"length for {key} --> {len(result[key])}")
@@ -50,7 +52,7 @@ if __name__ == "__main__":
     print(text)
 
 
-    n_boxes = len(result['text'])
+    n_boxes = len(text)
     for i in range(n_boxes):
         if int(result['conf'][i]) > 60:
                 (x, y, w, h) = (result['left'][i], result['top'][i], result['width'][i], result['height'][i])
