@@ -4,7 +4,7 @@ from libs import *
 import argparse
 import os
 
-def get_args() -> dict:
+def get_args() -> tuple:
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--input", required=True, help="Path to input file")
     ap.add_argument("-o", "--output", required=True, help="Path to output file")
@@ -13,7 +13,7 @@ def get_args() -> dict:
     ipath = os.path.abspath(args["input"])
     opath = os.path.abspath(args["output"])
 
-    return ipath, opath
+    return (ipath, opath)
 
 def main() -> ():
     ipath,  opath = get_args()
@@ -40,7 +40,7 @@ def main() -> ():
             (x, y, w, h) = (result['left'][i], result['top'][i], result['width'][i], result['height'][i])
             img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
-    cv2.imwrite(f"{i}_out.png", img)
+    cv2.imwrite(opath, img)
 
 if __name__ == "__main__":
     main()
