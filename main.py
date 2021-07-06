@@ -41,8 +41,8 @@ def main() -> ():
     n_boxes = len(text)
     for i in range(n_boxes):
         if int(result['conf'][i]) > 60:
-            (x, y, w, h) = (result['left'][i], result['top'][i], result['width'][i], result['height'][i])
-            img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
+            (x, y, dx, dy) = text.words[i].x, text.words[i].y, text.words[i].dx, text.words[i].dy
+            img = cv2.rectangle(img, (x, y), (x + dx, y + dy), (0, 0, 255), 2)
 
     cv2.imwrite(opath, img)
 
