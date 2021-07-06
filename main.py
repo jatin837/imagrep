@@ -4,18 +4,19 @@ from libs import *
 import argparse
 import os
 
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--input", required=True, help="Path to input file")
-ap.add_argument("-o", "--output", required=True, help="Path to output file")
-args = vars(ap.parse_args())
+def get_args() -> dict:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-i", "--input", required=True, help="Path to input file")
+    ap.add_argument("-o", "--output", required=True, help="Path to output file")
+    args = vars(ap.parse_args())
 
-ipath = os.path.abspath(args["input"])
-opath = os.path.abspath(args["output"])
+    ipath = os.path.abspath(args["input"])
+    opath = os.path.abspath(args["output"])
 
-ipath = os.path.abspath(ipath)
-opath = os.path.abspath(opath)
+    return ipath, opath
 
-if __name__ == "__main__":
+def main() -> ():
+    ipath,  opath = get_args()
     img = cv2.imread(ipath)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
@@ -40,3 +41,6 @@ if __name__ == "__main__":
             img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
     cv2.imwrite(f"{i}_out.png", img)
+
+if __name__ == "__main__":
+    main()
