@@ -1,11 +1,24 @@
 import pytesseract
 import cv2
-import json
 from libs import *
+import argparse
+import os
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--input", required=True, help="Path to input file")
+ap.add_argument("-o", "--output", required=True, help="Path to output file")
+args = vars(ap.parse_args())
+
+ipath = os.path.abspath(args["input"])
+opath = os.path.abspath(args["output"])
+
+ipath = os.path.abspath(ipath)
+opath = os.path.abspath(opath)
 
 if __name__ == "__main__":
-    img = cv2.imread('test.png')
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = cv2.imread(ipath)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
     result = pytesseract.image_to_data(img, lang='eng', nice=0, output_type=pytesseract.Output.DICT)
     print("*"*10)
 
