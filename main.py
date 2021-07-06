@@ -17,13 +17,13 @@ if __name__ == "__main__":
             result['width'][i],
             result['height'][i],
             result['text'][i]
-
             )
 
-        print(text)
-
+    print(text)
     n_boxes = len(text)
     for i in range(n_boxes):
         if int(result['conf'][i]) > 60:
             (x, y, w, h) = (result['left'][i], result['top'][i], result['width'][i], result['height'][i])
             img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+    cv2.imwrite(f"{i}_out.png", img)
