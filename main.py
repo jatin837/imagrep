@@ -20,20 +20,7 @@ if __name__ == "__main__":
 
             )
 
-   # for key in result.keys():
-   #     print(f"length for {key} --> {len(result[key])}")
-   
-   #keys = result.keys()
-   #print(keys)
-   #for i, word in enumerate(result['text']):
-   #
-   #    p = (p := f'{word} has')
-   #    for key in keys:
-   #       p = p + f" {key} = {result[key][i]}"
-
-   #    print(p)
-    print(text)
-
+        print(text)
 
     n_boxes = len(text)
     for i in range(n_boxes):
