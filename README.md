@@ -5,3 +5,9 @@
 - may be i try to switch to RUST
 
 [Test Image Here](https://i2.wp.com/syncedreview.com/wp-content/uploads/2020/04/image-82.png)
+
+## DEMO
+
+```zsh
+./main.py -i ./test.png -o ./out.png -w the
+```
