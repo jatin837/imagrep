@@ -8,6 +8,10 @@
 
 ## DEMO
 
+![Screenshot from 2021-07-06 23-44-57](https://user-images.githubusercontent.com/63631162/124648236-a776ea80-deb4-11eb-9fb0-db0d90b1f0dc.png)
+
+
 ```console
 ./main.py -i ./test.png -o ./out.png -w the
 ```
+![Screenshot from 2021-07-06 23-45-15](https://user-images.githubusercontent.com/63631162/124648258-b067bc00-deb4-11eb-9f35-ec6be3557124.png)
