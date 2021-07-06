@@ -10,15 +10,17 @@ def get_args() -> tuple:
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--input", required=True, help="Path to input file")
     ap.add_argument("-o", "--output", required=True, help="Path to output file")
+    ap.add_argument("-w", "--word", required=True, help="Word to search")
     args = vars(ap.parse_args())
 
     ipath = os.path.abspath(args["input"])
     opath = os.path.abspath(args["output"])
+    word  = args['word']
 
-    return (ipath, opath)
+    return (ipath, opath, word)
 
 def main() -> ():
-    ipath,  opath = get_args()
+    ipath,  opath, word = get_args()
     img = cv2.imread(ipath)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
