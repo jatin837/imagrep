@@ -24,6 +24,6 @@ if __name__ == "__main__":
     for i in range(n_boxes):
         if int(result['conf'][i]) > 60:
             (x, y, w, h) = (result['left'][i], result['top'][i], result['width'][i], result['height'][i])
-            img = cv2.rectangle(img, (x, y), (x + w, y + h), (255, 255, 255), 2)
+            img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
     cv2.imwrite(f"{i}_out.png", img)
