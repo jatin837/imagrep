@@ -1,3 +1,5 @@
+#!./env/bin/python
+
 import pytesseract
 import cv2
 from libs import *
