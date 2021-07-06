@@ -8,6 +8,6 @@
 
 ## DEMO
 
-```zsh
+```console
 ./main.py -i ./test.png -o ./out.png -w the
 ```
