@@ -1,4 +1,4 @@
-#!./env/bin/python
+#!/usr/local/bin/python
 
 import pytesseract
 import cv2
