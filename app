@@ -40,10 +40,11 @@ def main() -> ():
     print(text)
     n_boxes = len(text)
     for i in range(n_boxes):
-        if int(result['conf'][i]) > 60 and text.words[i].content == word:
+        if float(result['conf'][i]) > 60 and text.words[i].content == word:
             (x, y, dx, dy) = text.words[i].x, text.words[i].y, text.words[i].dx, text.words[i].dy
             img = cv2.rectangle(img, (x - 2, y - 2), (x + dx + 2, y + dy + 2), (0, 0, 255), 2)
 
+    breakpoint()
     cv2.imwrite(opath, img)
 
 if __name__ == "__main__":
